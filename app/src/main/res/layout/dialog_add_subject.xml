@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_rounded"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Dialog Title -->
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/dialog_title_add_subject"
+        android:textColor="@color/text_dark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- 1. Mã môn học -->
+    <EditText
+        android:id="@+id/etSubjectCode"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
+        android:autofillHints=""
+        android:background="@drawable/bg_spinner"
+        android:hint="@string/hint_subject_code"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:singleLine="true"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_hint"
+        android:textSize="14sp" />
+
+    <!-- 2. Tên môn học -->
+    <EditText
+        android:id="@+id/etSubjectName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="12dp"
+        android:autofillHints=""
+        android:background="@drawable/bg_spinner"
+        android:hint="@string/hint_subject_name"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:singleLine="true"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_hint"
+        android:textSize="14sp" />
+
+    <!-- 3. Số tín chỉ & Giảng viên -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etCredits"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/bg_spinner"
+            android:hint="@string/hint_credits"
+            android:inputType="number"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etTeacher"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/bg_spinner"
+            android:hint="@string/hint_teacher"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 4. Học kỳ & Năm học -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spSemester"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_spinner"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:id="@+id/etAcademicYear"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/bg_spinner"
+            android:hint="@string/hint_academic_year"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 5. Năm học (Full width extra field - hidden to avoid duplicate) -->
+    <EditText
+        android:id="@+id/etAcademicYearFull"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:autofillHints=""
+        android:background="@drawable/bg_spinner"
+        android:hint="@string/hint_academic_year"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:singleLine="true"
+        android:textColor="@color/text_dark"
+        android:textColorHint="@color/text_hint"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/primary_blue"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button"
+            android:text="@string/btn_save"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBF1F5"
+    tools:context=".MainActivity">
+
+    <!-- Main Content Area -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="88dp">
+
+            <!-- Top Curved Blue Background Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_top_header"
+                android:paddingStart="20dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_logo_circle"
+                        android:contentDescription="@string/title_schedule"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_schedule_logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/title_schedule"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Week Navigation Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="-16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_stat_card"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <!-- Week Selector Header: Prev - Text - Next -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/btnPrevWeek"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/prev_week_desc"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_chevron_left" />
+
+                    <TextView
+                        android:id="@+id/tvWeekRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/week_navigation_sample"
+                        android:textColor="@color/text_dark"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/btnNextWeek"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/next_week_desc"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_chevron_right" />
+                </RelativeLayout>
+
+                <!-- Row of 7 Days -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <!-- Day T2 -->
+                    <LinearLayout
+                        android:id="@+id/btnDayT2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDayT2"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_day_active"
+                            android:gravity="center"
+                            android:text="@string/day_short_t2"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Day T3 -->
+                    <LinearLayout
+                        android:id="@+id/btnDayT3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDayT3"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_day_inactive"
+                            android:gravity="center"
+                            android:text="@string/day_short_t3"
+                            android:textColor="@color/text_dark"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Day T4 -->
+                    <LinearLayout
+                        android:id="@+id/btnDayT4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDayT4"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_day_inactive"
+                            android:gravity="center"
+                            android:text="@string/day_short_t4"
+                            android:textColor="@color/text_dark"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Day T5 -->
+                    <LinearLayout
+                        android:id="@+id/btnDayT5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDayT5"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_day_inactive"
+                            android:gravity="center"
+                            android:text="@string/day_short_t5"
+                            android:textColor="@color/text_dark"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Day T6 -->
+                    <LinearLayout
+                        android:id="@+id/btnDayT6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDayT6"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_day_inactive"
+                            android:gravity="center"
+                            android:text="@string/day_short_t6"
+                            android:textColor="@color/text_dark"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Day T7 -->
+                    <LinearLayout
+                        android:id="@+id/btnDayT7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDayT7"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_day_inactive"
+                            android:gravity="center"
+                            android:text="@string/day_short_t7"
+                            android:textColor="@color/text_dark"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Day CN -->
+                    <LinearLayout
+                        android:id="@+id/btnDayCN"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDayCN"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_day_inactive"
+                            android:gravity="center"
+                            android:text="@string/day_short_cn"
+                            android:textColor="@color/text_dark"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Selected Day Header -->
+            <TextView
+                android:id="@+id/tvSelectedDayTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/day_mon"
+                android:textColor="@color/text_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvEmptySchedules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:text="Không có lịch học trong ngày này. Nhấn (+) để thêm lịch!"
+                android:textColor="#5A6E85"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSchedules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button (+) -->
+    <ImageButton
+        android:id="@+id/fabAddSchedule"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_fab"
+        android:contentDescription="@string/dialog_title_add_schedule"
+        android:elevation="6dp"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Bottom Navigation Bar (6 tabs) -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Tab 1: Trang chủ -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_home"
+                android:src="@drawable/ic_home_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_home"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 2: Môn học -->
+        <LinearLayout
+            android:id="@+id/navSubjects"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_management"
+                android:src="@drawable/ic_management_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Môn học"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 3: Lịch học (Active) -->
+        <LinearLayout
+            android:id="@+id/navSchedule"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@color/primary_blue" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_schedule"
+                android:src="@drawable/ic_calendar_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_schedule"
+                android:textColor="@color/primary_blue"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Tab 4: Công việc -->
+        <LinearLayout
+            android:id="@+id/navTasks"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_tasks"
+                android:src="@drawable/ic_task_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_tasks"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 5: Lịch thi -->
+        <LinearLayout
+            android:id="@+id/navExams"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_exams"
+                android:src="@drawable/ic_exam_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_exams"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 6: Cá nhân -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_profile"
+                android:src="@drawable/ic_profile_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_profile"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

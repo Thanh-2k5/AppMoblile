@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBF1F5"
+    tools:context=".MainActivity">
+
+    <!-- Scrollable Main Content -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+
+            <!-- Top Curved Blue Background Header Container -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_top_header"
+                android:paddingStart="20dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="36dp">
+
+                <!-- Header Title: Cá nhân & Cài đặt -->
+                <TextView
+                    android:id="@+id/tvProfileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/title_profile_settings"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Circular Avatar Placeholder -->
+                <ImageView
+                    android:id="@+id/imgAvatar"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_below="@id/tvProfileTitle"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_avatar_border"
+                    android:contentDescription="@string/sample_user_name"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_avatar_placeholder" />
+
+                <!-- User Full Name -->
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imgAvatar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/sample_user_name"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <!-- Student ID Code -->
+                <TextView
+                    android:id="@+id/tvStudentId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvUserName"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/sample_student_id_code"
+                    android:textColor="#C2D8EC"
+                    android:textSize="14sp" />
+
+                <!-- User Email -->
+                <TextView
+                    android:id="@+id/tvUserEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvStudentId"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/sample_user_email"
+                    android:textColor="#C2D8EC"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <!-- Menu Options List Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
+
+                <!-- Option 1: Thông tin cá nhân -->
+                <RelativeLayout
+                    android:id="@+id/btnPersonalInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:elevation="2dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:id="@+id/iconPersonalInfo"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_personal_info"
+                        android:src="@drawable/ic_user" />
+
+                    <ImageView
+                        android:id="@+id/arrow1"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_personal_info"
+                        android:src="@drawable/ic_chevron_right" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="14dp"
+                        android:layout_toStartOf="@id/arrow1"
+                        android:layout_toEndOf="@id/iconPersonalInfo"
+                        android:text="@string/option_personal_info"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Option 2: Chỉnh sửa thông tin -->
+                <RelativeLayout
+                    android:id="@+id/btnEditInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:elevation="2dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:id="@+id/iconEditInfo"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_edit_info"
+                        android:src="@drawable/ic_edit" />
+
+                    <ImageView
+                        android:id="@+id/arrow2"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_edit_info"
+                        android:src="@drawable/ic_chevron_right" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="14dp"
+                        android:layout_toStartOf="@id/arrow2"
+                        android:layout_toEndOf="@id/iconEditInfo"
+                        android:text="@string/option_edit_info"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Option 3: Sao lưu dữ liệu -->
+                <RelativeLayout
+                    android:id="@+id/btnBackupData"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:elevation="2dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:id="@+id/iconBackup"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_backup_data"
+                        android:src="@drawable/ic_cloud_upload" />
+
+                    <ImageView
+                        android:id="@+id/arrow3"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_backup_data"
+                        android:src="@drawable/ic_chevron_right" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="14dp"
+                        android:layout_toStartOf="@id/arrow3"
+                        android:layout_toEndOf="@id/iconBackup"
+                        android:text="@string/option_backup_data"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Option 4: Khôi phục dữ liệu -->
+                <RelativeLayout
+                    android:id="@+id/btnRestoreData"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:elevation="2dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:id="@+id/iconRestore"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_restore_data"
+                        android:src="@drawable/ic_cloud_download" />
+
+                    <ImageView
+                        android:id="@+id/arrow4"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_restore_data"
+                        android:src="@drawable/ic_chevron_right" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="14dp"
+                        android:layout_toStartOf="@id/arrow4"
+                        android:layout_toEndOf="@id/iconRestore"
+                        android:text="@string/option_restore_data"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Option 5: Đăng xuất (Red text & icon) -->
+                <RelativeLayout
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_menu_item"
+                    android:elevation="2dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:id="@+id/iconLogout"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_logout"
+                        android:src="@drawable/ic_logout" />
+
+                    <ImageView
+                        android:id="@+id/arrow5"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/option_logout"
+                        android:src="@drawable/ic_chevron_right" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="14dp"
+                        android:layout_toStartOf="@id/arrow5"
+                        android:layout_toEndOf="@id/iconLogout"
+                        android:text="@string/option_logout"
+                        android:textColor="#DC2626"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar (6 tabs) -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Tab 1: Trang chủ -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_home"
+                android:src="@drawable/ic_home_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_home"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 2: Môn học -->
+        <LinearLayout
+            android:id="@+id/navSubjects"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_management"
+                android:src="@drawable/ic_management_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Môn học"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 3: Lịch học -->
+        <LinearLayout
+            android:id="@+id/navSchedule"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_schedule"
+                android:src="@drawable/ic_calendar_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_schedule"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 4: Công việc -->
+        <LinearLayout
+            android:id="@+id/navTasks"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_tasks"
+                android:src="@drawable/ic_task_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_tasks"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 5: Lịch thi -->
+        <LinearLayout
+            android:id="@+id/navExams"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@android:color/transparent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_exams"
+                android:src="@drawable/ic_exam_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_exams"
+                android:textColor="#708090"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Tab 6: Cá nhân (Active) -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="3dp"
+                android:background="@color/primary_blue" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/tab_profile"
+                android:src="@drawable/ic_profile_tab" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_profile"
+                android:textColor="@color/primary_blue"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
