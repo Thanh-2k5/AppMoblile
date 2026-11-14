@@ -1,127 +1,123 @@
 package com.example.quan_ly_lich_hoc_sv.adapters;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.Nullable;
 
 import com.example.quan_ly_lich_hoc_sv.R;
 import com.example.quan_ly_lich_hoc_sv.models.BaiTap;
 
 import java.util.List;
 
-public class BaiTapAdapter extends RecyclerView.Adapter<BaiTapAdapter.BaiTapViewHolder> {
+public class BaiTapAdapter extends ArrayAdapter<BaiTap> {
 
     //Giao diện lắng nghe sự kiện Sửa, Xóa và Đổi trạng thái bài tập
     public interface OnBaiTapActionListener {
-        void onEdit(BaiTap baiTap);
-        void onDelete(BaiTap baiTap);
-        void onToggleStatus(BaiTap baiTap);
+        void khiSua(BaiTap baiTap);
+        void khiXoa(BaiTap baiTap);
+        void khiDoiTrangThai(BaiTap baiTap);
     }
 
     //Khai báo danh sách bài tập và biến lắng nghe sự kiện
-    private List<BaiTap> list;
-    private final OnBaiTapActionListener listener;
+    private final List<BaiTap> danhSach;
+    private final OnBaiTapActionListener boLangNghe;
 
-    public BaiTapAdapter(List<BaiTap> list, OnBaiTapActionListener listener) {
-        this.list = list;
-        this.listener = listener;
+    public BaiTapAdapter(Context nguCanh, List<BaiTap> danhSach, OnBaiTapActionListener boLangNghe) {
+        super(nguCanh, R.layout.item_bai_tap, danhSach);
+        this.danhSach = danhSach;
+        this.boLangNghe = boLangNghe;
     }
 
-    //Cập nhật lại dữ liệu danh sách bài tập
-    public void updateData(List<BaiTap> newList) {
-        this.list = newList;
+    //Cập nhật lại dữ liệu danh sách bài tập trên ListView
+    public void capNhatDuLieu(List<BaiTap> danhSachMoi) {
+        danhSach.clear();
+        danhSach.addAll(danhSachMoi);
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public BaiTapViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Gắn layout item_bai_tap cho từng dòng công việc
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_bai_tap, parent, false);
-        return new BaiTapViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull BaiTapViewHolder holder, int position) {
-        BaiTap bt = list.get(position);
-
-        //Hiển thị tiêu đề, môn học, nội dung và hạn nộp
-        holder.tvTaskTitle.setText(bt.getTenBaiTap());
-        holder.tvTaskCourse.setText(bt.getTenMonHoc() != null ? bt.getTenMonHoc() : "");
-
-        if (bt.getNoiDung() != null && !bt.getNoiDung().trim().isEmpty()) {
-            holder.tvTaskDesc.setVisibility(View.VISIBLE);
-            holder.tvTaskDesc.setText(bt.getNoiDung());
-        } else {
-            holder.tvTaskDesc.setVisibility(View.GONE);
+    public View getView(int viTri, @Nullable View dongGiaoDien, @NonNull ViewGroup khungCha) {
+        //Gắn layout item_bai_tap cho từng dòng trong ListView
+        if (dongGiaoDien == null) {
+            dongGiaoDien = LayoutInflater.from(getContext()).inflate(R.layout.item_bai_tap, khungCha, false);
         }
 
-        holder.tvTaskDeadline.setText("Hạn: " + (bt.getHanNop() != null ? bt.getHanNop() : "Chưa có"));
+        //Lấy đối tượng bài tập tại vị trí hiện tại
+        final BaiTap baiTap = danhSach.get(viTri);
+
+        //Tham chiếu Id đến các biến giao diện
+        TextView tvTenBaiTap = dongGiaoDien.findViewById(R.id.tvTaskTitle);
+        TextView tvMonHocBaiTap = dongGiaoDien.findViewById(R.id.tvTaskCourse);
+        TextView tvMoTaBaiTap = dongGiaoDien.findViewById(R.id.tvTaskDesc);
+        TextView tvHanNopBaiTap = dongGiaoDien.findViewById(R.id.tvTaskDeadline);
+        TextView tvMucDoUuTien = dongGiaoDien.findViewById(R.id.tvTaskPriority);
+        TextView tvNhanTrangThai = dongGiaoDien.findViewById(R.id.tvTaskStatusChip);
+        TextView btnSuaBaiTap = dongGiaoDien.findViewById(R.id.btnEditBaiTap);
+        TextView btnXoaBaiTap = dongGiaoDien.findViewById(R.id.btnDeleteBaiTap);
+
+        //Hiển thị tiêu đề, môn học, nội dung và hạn nộp
+        tvTenBaiTap.setText(baiTap.getTenBaiTap());
+        tvMonHocBaiTap.setText(baiTap.getTenMonHoc() != null ? baiTap.getTenMonHoc() : "");
+
+        if (baiTap.getNoiDung() != null && !baiTap.getNoiDung().trim().isEmpty()) {
+            tvMoTaBaiTap.setVisibility(View.VISIBLE);
+            tvMoTaBaiTap.setText(baiTap.getNoiDung());
+        } else {
+            tvMoTaBaiTap.setVisibility(View.GONE);
+        }
+
+        tvHanNopBaiTap.setText("Hạn: " + (baiTap.getHanNop() != null ? baiTap.getHanNop() : "Chưa có"));
 
         //Thiết lập màu chữ theo mức độ ưu tiên (Cao - Trung bình - Thấp)
-        String uuTien = bt.getMucDoUuTien() != null ? bt.getMucDoUuTien() : "Trung bình";
-        holder.tvTaskPriority.setText(uuTien);
+        String uuTien = baiTap.getMucDoUuTien() != null ? baiTap.getMucDoUuTien() : "Trung bình";
+        tvMucDoUuTien.setText("Ưu tiên: " + uuTien);
         if ("Cao".equalsIgnoreCase(uuTien)) {
-            holder.tvTaskPriority.setTextColor(Color.parseColor("#E53935"));
+            tvMucDoUuTien.setTextColor(Color.parseColor("#E53935"));
         } else if ("Trung bình".equalsIgnoreCase(uuTien)) {
-            holder.tvTaskPriority.setTextColor(Color.parseColor("#D97706"));
+            tvMucDoUuTien.setTextColor(Color.parseColor("#D97706"));
         } else {
-            holder.tvTaskPriority.setTextColor(Color.parseColor("#2563EB"));
+            tvMucDoUuTien.setTextColor(Color.parseColor("#2563EB"));
         }
 
         //Hiển thị nhãn trạng thái hoàn thành
-        String trangThai = bt.getTrangThai() != null ? bt.getTrangThai() : "Chưa hoàn thành";
-        holder.tvTaskStatusChip.setText(trangThai);
+        String trangThai = baiTap.getTrangThai() != null ? baiTap.getTrangThai() : "Chưa hoàn thành";
+        tvNhanTrangThai.setText(trangThai);
         if ("Đã hoàn thành".equalsIgnoreCase(trangThai)) {
-            holder.tvTaskStatusChip.setBackgroundResource(R.drawable.bg_chip_completed);
+            tvNhanTrangThai.setBackgroundResource(R.drawable.bg_chip_completed);
         } else {
-            holder.tvTaskStatusChip.setBackgroundResource(R.drawable.bg_chip_unfinished);
+            tvNhanTrangThai.setBackgroundResource(R.drawable.bg_chip_unfinished);
         }
 
         //Xử lý sự kiện đổi trạng thái, sửa và xóa bài tập
-        holder.tvTaskStatusChip.setOnClickListener(v -> {
-            if (listener != null) listener.onToggleStatus(bt);
+        tvNhanTrangThai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (boLangNghe != null) boLangNghe.khiDoiTrangThai(baiTap);
+            }
         });
-        holder.btnEditBaiTap.setOnClickListener(v -> {
-            if (listener != null) listener.onEdit(bt);
-        });
-        holder.cardBaiTap.setOnClickListener(v -> {
-            if (listener != null) listener.onEdit(bt);
-        });
-        holder.btnDeleteBaiTap.setOnClickListener(v -> {
-            if (listener != null) listener.onDelete(bt);
-        });
-    }
 
-    @Override
-    public int getItemCount() {
-        return list != null ? list.size() : 0;
-    }
+        btnSuaBaiTap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (boLangNghe != null) boLangNghe.khiSua(baiTap);
+            }
+        });
 
-    static class BaiTapViewHolder extends RecyclerView.ViewHolder {
-        //Khai báo các biến giao diện trong một thẻ bài tập
-        RelativeLayout cardBaiTap;
-        TextView tvTaskTitle, tvTaskCourse, tvTaskDesc, tvTaskDeadline, tvTaskPriority, tvTaskStatusChip;
-        TextView btnEditBaiTap, btnDeleteBaiTap;
+        btnXoaBaiTap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (boLangNghe != null) boLangNghe.khiXoa(baiTap);
+            }
+        });
 
-        public BaiTapViewHolder(@NonNull View itemView) {
-            super(itemView);
-            //Tham chiếu Id đến các biến giao diện
-            cardBaiTap = itemView.findViewById(R.id.cardBaiTap);
-            tvTaskTitle = itemView.findViewById(R.id.tvTaskTitle);
-            tvTaskCourse = itemView.findViewById(R.id.tvTaskCourse);
-            tvTaskDesc = itemView.findViewById(R.id.tvTaskDesc);
-            tvTaskDeadline = itemView.findViewById(R.id.tvTaskDeadline);
-            tvTaskPriority = itemView.findViewById(R.id.tvTaskPriority);
-            tvTaskStatusChip = itemView.findViewById(R.id.tvTaskStatusChip);
-            btnEditBaiTap = itemView.findViewById(R.id.btnEditBaiTap);
-            btnDeleteBaiTap = itemView.findViewById(R.id.btnDeleteBaiTap);
-        }
+        return dongGiaoDien;
     }
 }

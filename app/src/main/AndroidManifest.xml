@@ -11,24 +11,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Quan_Ly_Lich_Hoc_SV">
+
+        <!-- 1. Màn hình Trang chủ -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 2. Màn hình Quản lý môn học -->
         <activity
-            android:name=".RegisterActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".HomeActivity"
+            android:name=".MonHocActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
+
+        <!-- 3. Màn hình Thời khóa biểu / Lịch học -->
+        <activity
+            android:name=".LichHocActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- 4. Màn hình Quản lý công việc / Bài tập -->
+        <activity
+            android:name=".BaiTapActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+
     </application>
 
 </manifest>

@@ -60,7 +60,7 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Greeting Section (Left) -->
+                <!-- Greeting Section -->
                 <LinearLayout
                     android:id="@+id/layoutGreeting"
                     android:layout_width="wrap_content"
@@ -95,37 +95,6 @@
                         android:textColor="#C2D8EC"
                         android:textSize="14sp" />
                 </LinearLayout>
-
-                <!-- Notification Bell Icon (Right) -->
-                <FrameLayout
-                    android:id="@+id/btnHomeNotification"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true">
-
-                    <ImageView
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        android:background="@drawable/bg_logo_circle"
-                        android:contentDescription="@string/notification_desc"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_bell" />
-
-                    <!-- Red Notification Badge -->
-                    <TextView
-                        android:id="@+id/tvNotificationBadge"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_gravity="top|end"
-                        android:background="@drawable/bg_notification_badge"
-                        android:gravity="center"
-                        android:text="1"
-                        android:textColor="@color/white"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        tools:ignore="SmallSp" />
-                </FrameLayout>
             </RelativeLayout>
 
             <!-- Stat Summary Cards Row -->
@@ -288,37 +257,10 @@
                     android:orientation="vertical" />
             </LinearLayout>
 
-            <!-- Section 3: LỊCH THI SẮP TỚI -->
-            <LinearLayout
-                android:id="@+id/sectionUpcomingExams"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/bg_dark_card"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/section_upcoming_exams"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/layoutUpcomingExamsList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation Bar (6 tabs) -->
+    <!-- Bottom Navigation Bar (5 tabs) -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
@@ -452,65 +394,6 @@
                 android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Tab 5: Lịch thi -->
-        <LinearLayout
-            android:id="@+id/navExams"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="3dp"
-                android:background="@android:color/transparent" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="4dp"
-                android:contentDescription="@string/tab_exams"
-                android:src="@drawable/ic_exam_tab" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/tab_exams"
-                android:textColor="#708090"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <!-- Tab 6: Cá nhân -->
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="3dp"
-                android:background="@android:color/transparent" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="4dp"
-                android:contentDescription="@string/tab_profile"
-                android:src="@drawable/ic_profile_tab" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/tab_profile"
-                android:textColor="#708090"
-                android:textSize="10sp" />
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

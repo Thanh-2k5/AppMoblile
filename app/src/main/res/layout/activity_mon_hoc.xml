@@ -7,112 +7,110 @@
     android:background="#EBF1F5"
     tools:context=".MainActivity">
 
-    <!-- Scrollable Main Content -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView"
+    <!-- Main Content Container -->
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <!-- Top Curved Blue Background Header -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="88dp">
+            android:background="@drawable/bg_top_header"
+            android:paddingStart="20dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
 
-            <!-- Top Curved Blue Background Header -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_top_header"
-                android:paddingStart="20dp"
-                android:paddingTop="16dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="24dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:background="@drawable/bg_logo_circle"
-                        android:contentDescription="@string/app_name"
-                        android:padding="4dp"
-                        android:src="@drawable/ic_schedule_logo" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/title_student_schedule"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </RelativeLayout>
-
-            <!-- Screen Title: Quản lý môn học -->
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:text="@string/title_subject_management"
-                android:textColor="@color/primary_blue"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <!-- Search Bar -->
-            <EditText
-                android:id="@+id/etSearchSubject"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="20dp"
-                android:autofillHints=""
-                android:background="@drawable/bg_edittext"
-                android:drawableStart="@drawable/ic_search"
-                android:drawablePadding="12dp"
-                android:hint="@string/hint_search_subject"
-                android:inputType="text"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:singleLine="true"
-                android:textColor="@color/text_dark"
-                android:textColorHint="@color/text_hint"
-                android:textSize="15sp" />
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_logo_circle"
+                    android:contentDescription="@string/app_name"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_schedule_logo" />
 
-            <TextView
-                android:id="@+id/tvEmptySubjects"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:gravity="center"
-                android:text="Chưa có môn học nào. Nhấn (+) để thêm mới!"
-                android:textColor="#5A6E85"
-                android:textSize="15sp"
-                android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/title_student_schedule"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
 
-            <!-- RecyclerView Danh sách môn học -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvSubjects"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:nestedScrollingEnabled="false" />
+        <!-- Screen Title: Quản lý môn học -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_subject_management"
+            android:textColor="@color/primary_blue"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/etSearchSubject"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="20dp"
+            android:autofillHints=""
+            android:background="@drawable/bg_edittext"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="12dp"
+            android:hint="@string/hint_search_subject"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/text_hint"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvEmptySubjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Chưa có môn học nào. Nhấn (+) để thêm mới!"
+            android:textColor="#5A6E85"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <!-- ListView Danh sách môn học -->
+        <ListView
+            android:id="@+id/lvSubjects"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="88dp" />
+
+    </LinearLayout>
 
     <!-- Floating Action Button (+) -->
     <ImageButton
@@ -262,65 +260,6 @@
                 android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Tab 5: Lịch thi -->
-        <LinearLayout
-            android:id="@+id/navExams"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="3dp"
-                android:background="@android:color/transparent" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="4dp"
-                android:contentDescription="@string/tab_exams"
-                android:src="@drawable/ic_exam_tab" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/tab_exams"
-                android:textColor="#708090"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <!-- Tab 6: Cá nhân -->
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="3dp"
-                android:background="@android:color/transparent" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="4dp"
-                android:contentDescription="@string/tab_profile"
-                android:src="@drawable/ic_profile_tab" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/tab_profile"
-                android:textColor="#708090"
-                android:textSize="10sp" />
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

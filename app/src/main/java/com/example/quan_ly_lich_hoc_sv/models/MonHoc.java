@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 public class MonHoc {
     //Khai báo các thuộc tính của đối tượng Môn học
     private int id;
-    private int nguoiDungId;
     private String maMonHoc;
     private String tenMonHoc;
     private int soTinChi;
@@ -18,9 +17,8 @@ public class MonHoc {
     }
 
     //Hàm khởi tạo đầy đủ tham số (có id)
-    public MonHoc(int id, int nguoiDungId, String maMonHoc, String tenMonHoc, int soTinChi, String giangVien, String hocKy, String namHoc) {
+    public MonHoc(int id, String maMonHoc, String tenMonHoc, int soTinChi, String giangVien, String hocKy, String namHoc) {
         this.id = id;
-        this.nguoiDungId = nguoiDungId;
         this.maMonHoc = maMonHoc;
         this.tenMonHoc = tenMonHoc;
         this.soTinChi = soTinChi;
@@ -30,8 +28,7 @@ public class MonHoc {
     }
 
     //Hàm khởi tạo dùng khi thêm mới môn học (chưa có id tự tăng)
-    public MonHoc(int nguoiDungId, String maMonHoc, String tenMonHoc, int soTinChi, String giangVien, String hocKy, String namHoc) {
-        this.nguoiDungId = nguoiDungId;
+    public MonHoc(String maMonHoc, String tenMonHoc, int soTinChi, String giangVien, String hocKy, String namHoc) {
         this.maMonHoc = maMonHoc;
         this.tenMonHoc = tenMonHoc;
         this.soTinChi = soTinChi;
@@ -47,14 +44,6 @@ public class MonHoc {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getNguoiDungId() {
-        return nguoiDungId;
-    }
-
-    public void setNguoiDungId(int nguoiDungId) {
-        this.nguoiDungId = nguoiDungId;
     }
 
     public String getMaMonHoc() {
