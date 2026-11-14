@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
     private void themTheLichHoc(LinearLayout khungChua, final LichHoc lichHoc, boolean hienThiThu) {
         LinearLayout theLich = new LinearLayout(this);
         theLich.setOrientation(LinearLayout.VERTICAL);
-        theLich.setBackgroundResource(R.drawable.bg_blue_card_item);
+        theLich.setBackgroundResource(R.drawable.bg_light_card);
         int demLe = doiDpSangPx(14);
         theLich.setPadding(demLe, demLe, demLe, demLe);
         LinearLayout.LayoutParams thamSoBoCuc = new LinearLayout.LayoutParams(
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tvTenMon = new TextView(this);
         tvTenMon.setText(lichHoc.getTenMonHoc());
-        tvTenMon.setTextColor(Color.WHITE);
+        tvTenMon.setTextColor(Color.parseColor("#0F2537"));
         tvTenMon.setTextSize(17f);
         tvTenMon.setTypeface(null, Typeface.BOLD);
         theLich.addView(tvTenMon);
@@ -233,21 +233,21 @@ public class MainActivity extends AppCompatActivity {
         TextView tvGioHoc = new TextView(this);
         String tienToThu = hienThiThu ? (lichHoc.getThu() + " | ") : "";
         tvGioHoc.setText(tienToThu + lichHoc.getGioBatDau() + " – " + lichHoc.getGioKetThuc());
-        tvGioHoc.setTextColor(Color.parseColor("#D0E2F2"));
+        tvGioHoc.setTextColor(Color.parseColor("#5A6E85"));
         tvGioHoc.setTextSize(14f);
         tvGioHoc.setPadding(0, doiDpSangPx(4), 0, 0);
         theLich.addView(tvGioHoc);
 
         TextView tvPhongHoc = new TextView(this);
         tvPhongHoc.setText("Phòng: " + (lichHoc.getPhongHoc() != null ? lichHoc.getPhongHoc() : ""));
-        tvPhongHoc.setTextColor(Color.parseColor("#D0E2F2"));
+        tvPhongHoc.setTextColor(Color.parseColor("#5A6E85"));
         tvPhongHoc.setTextSize(14f);
         tvPhongHoc.setPadding(0, doiDpSangPx(2), 0, 0);
         theLich.addView(tvPhongHoc);
 
         TextView tvGiangVien = new TextView(this);
         tvGiangVien.setText("GV: " + (lichHoc.getGiangVien() != null ? lichHoc.getGiangVien() : ""));
-        tvGiangVien.setTextColor(Color.parseColor("#D0E2F2"));
+        tvGiangVien.setTextColor(Color.parseColor("#5A6E85"));
         tvGiangVien.setTextSize(14f);
         tvGiangVien.setPadding(0, doiDpSangPx(2), 0, 0);
         theLich.addView(tvGiangVien);

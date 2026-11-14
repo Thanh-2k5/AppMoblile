@@ -6,8 +6,8 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="12dp"
     android:layout_marginEnd="16dp"
-    android:background="@drawable/bg_blue_card_item"
-    android:elevation="3dp"
+    android:background="@drawable/bg_light_card"
+    android:elevation="2dp"
     android:padding="16dp">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lập trình Android"
-            android:textColor="@color/white"
+            android:textColor="@color/text_dark"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="07:30 – 09:30"
-            android:textColor="#EBF4FC"
+            android:textColor="#5A6E85"
             android:textSize="14sp" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="Phòng: A.102"
-            android:textColor="#EBF4FC"
+            android:textColor="#5A6E85"
             android:textSize="14sp" />
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="GV: ThS. Trần Văn B"
-            android:textColor="#EBF4FC"
+            android:textColor="#5A6E85"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -66,11 +66,11 @@
             android:id="@+id/btnEditLichHoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_stat_card"
+            android:background="@drawable/bg_spinner"
             android:paddingStart="12dp"
-            android:paddingTop="4dp"
+            android:paddingTop="5dp"
             android:paddingEnd="12dp"
-            android:paddingBottom="4dp"
+            android:paddingBottom="5dp"
             android:text="Sửa"
             android:textColor="@color/primary_blue"
             android:textSize="12sp"
@@ -81,11 +81,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/bg_stat_card"
+            android:background="@drawable/bg_spinner"
             android:paddingStart="12dp"
-            android:paddingTop="4dp"
+            android:paddingTop="5dp"
             android:paddingEnd="12dp"
-            android:paddingBottom="4dp"
+            android:paddingBottom="5dp"
             android:text="Xóa"
             android:textColor="#DC2626"
             android:textSize="12sp"
@@ -93,4 +93,3 @@
     </LinearLayout>
 
 </RelativeLayout>
-

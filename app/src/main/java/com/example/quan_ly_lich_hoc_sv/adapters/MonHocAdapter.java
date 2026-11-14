@@ -1,12 +1,10 @@
 package com.example.quan_ly_lich_hoc_sv.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -54,7 +52,6 @@ public class MonHocAdapter extends ArrayAdapter<MonHoc> {
         final MonHoc monHoc = danhSach.get(viTri);
 
         //Tham chiếu Id đến các biến giao diện trong dòng ListView
-        RelativeLayout theMonHoc = dongGiaoDien.findViewById(R.id.cardMonHoc);
         TextView tvTenMonHoc = dongGiaoDien.findViewById(R.id.tvTenMonHoc);
         TextView tvMaVaTinChi = dongGiaoDien.findViewById(R.id.tvMaVaTinChi);
         TextView tvGiangVien = dongGiaoDien.findViewById(R.id.tvGiangVien);
@@ -73,21 +70,6 @@ public class MonHocAdapter extends ArrayAdapter<MonHoc> {
             chuoiHocKy += " (" + monHoc.getNamHoc() + ")";
         }
         tvHocKyNamHoc.setText(chuoiHocKy);
-
-        //Thiết lập màu nền nổi bật cho dòng môn học đầu tiên
-        if (viTri == 0) {
-            theMonHoc.setBackgroundResource(R.drawable.bg_blue_card_item);
-            tvTenMonHoc.setTextColor(Color.WHITE);
-            tvMaVaTinChi.setTextColor(Color.parseColor("#D0E2F2"));
-            tvGiangVien.setTextColor(Color.parseColor("#D0E2F2"));
-            tvHocKyNamHoc.setTextColor(Color.parseColor("#D0E2F2"));
-        } else {
-            theMonHoc.setBackgroundResource(R.drawable.bg_light_card);
-            tvTenMonHoc.setTextColor(Color.parseColor("#0F2537"));
-            tvMaVaTinChi.setTextColor(Color.parseColor("#5A6E85"));
-            tvGiangVien.setTextColor(Color.parseColor("#5A6E85"));
-            tvHocKyNamHoc.setTextColor(Color.parseColor("#5A6E85"));
-        }
 
         //Xử lý sự kiện khi nhấn nút Sửa
         btnSuaMonHoc.setOnClickListener(new View.OnClickListener() {

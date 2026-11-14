@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,14 +23,9 @@ public class LichHocAdapter extends ArrayAdapter<LichHoc> {
         void khiXoa(LichHoc lichHoc);
     }
 
-    //Khai báo danh sách lịch học và mảng màu nền thẻ
+    //Khai báo danh sách lịch học và biến lắng nghe sự kiện
     private final List<LichHoc> danhSach;
     private final OnLichHocActionListener boLangNghe;
-    private static final int[] MANG_MAU_THE = {
-            R.drawable.bg_blue_card_item,
-            R.drawable.bg_card_orange,
-            R.drawable.bg_card_green
-    };
 
     public LichHocAdapter(Context nguCanh, List<LichHoc> danhSach, OnLichHocActionListener boLangNghe) {
         super(nguCanh, R.layout.item_lich_hoc, danhSach);
@@ -58,16 +52,12 @@ public class LichHocAdapter extends ArrayAdapter<LichHoc> {
         final LichHoc lichHoc = danhSach.get(viTri);
 
         //Tham chiếu Id đến các biến giao diện
-        RelativeLayout theLichHoc = dongGiaoDien.findViewById(R.id.cardLichHoc);
         TextView tvTenMonLichHoc = dongGiaoDien.findViewById(R.id.tvScheduleCourseName);
         TextView tvGioHoc = dongGiaoDien.findViewById(R.id.tvScheduleTime);
         TextView tvPhongHoc = dongGiaoDien.findViewById(R.id.tvScheduleRoom);
         TextView tvGiangVien = dongGiaoDien.findViewById(R.id.tvScheduleTeacher);
         TextView btnSuaLichHoc = dongGiaoDien.findViewById(R.id.btnEditLichHoc);
         TextView btnXoaLichHoc = dongGiaoDien.findViewById(R.id.btnDeleteLichHoc);
-
-        //Đổi màu nền thẻ luân phiên xanh - cam - lá
-        theLichHoc.setBackgroundResource(MANG_MAU_THE[viTri % MANG_MAU_THE.length]);
 
         //Hiển thị thông tin ca học lên giao diện
         tvTenMonLichHoc.setText(lichHoc.getTenMonHoc() != null ? lichHoc.getTenMonHoc() : "Môn học");
